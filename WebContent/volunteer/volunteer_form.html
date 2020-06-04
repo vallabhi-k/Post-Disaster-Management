@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Volunteer</title>
+	<style type="text/css">
+		body{
+			background-image: url("bg3.jpg");
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-attachment: scroll;
+		}
+	</style>
+	<meta charset="utf-8">
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    	h3{
+	text-align: center;
+	color: white;
+	font-size: 30px;
+}
+#position,#location{
+	color: black;
+}
+input{
+	height: 30px;
+	border-radius: 10px;
+	width: 500px;
+}
+select
+{
+	height: 30px;
+	border-radius: 10px;
+	width: 500px;
+}
+label{
+	font-size: 30px;
+}
+.intro{
+	height: 320px;
+	padding: 30px;
+	background-image: url("wood.jpg");
+	border-radius: 30px;
+}
+.header{
+	font: 40 40px/0.8 'Cookie', Helvetica, sans-serif;
+	background-image: url("wood.jpg");
+	width: 600px;
+	height: 80px;
+	align-self: center;
+	margin: auto;
+	padding: 3px;
+	font-color:pink;
+	border-radius: 20px;
+	font-size: 40px;
+	color:white;
+}
+.form {
+  align-items: center;
+  align-content: center;	
+  align-self: center;
+  margin: auto;
+  border-radius: 20px;
+  background-image: url("wood.jpg");
+  padding: 20px;
+  width: 600px;
+  color:white;
+  font: 40 40px/0.8 'Cookie', Helvetica, sans-serif;
+  font-size: 25px;
+}
+.sub{
+	background-color: white;
+	width: 500px;
+	height: 40px;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 25px;
+	color: black;
+}
+img{
+	border-radius: 30px;
+	width: 370px;
+	height: 370px;
+}
+    </style>
+    <script>
+function fname()
+{
+  var regex_name = /^[a-zA-Z ]{2,30}$/;
+  var input_name = document.forms["form1"]["firstname"].value;
+  if (input_name == "") {
+    alert("Name must be filled out");
+  }
+  if ((regex_name.test(input_name)))
+  {
+    return true;
+  }
+  else
+  {
+    alert("Enter a valid name!");
+    return false;
+  }
+}
+
+function lname()
+{
+  var regex_name = /^[a-zA-Z ]{2,30}$/;
+  var input_name = document.forms["form1"]["lastname"].value;
+  if (input_name == "") {
+    alert("Name must be filled out");
+  }
+  if ((regex_name.test(input_name)))
+  {
+    return true;
+  }
+  else
+  {
+    alert("Enter a valid name!");
+    return false;
+  }
+}
+
+function email()
+{
+  var regex_email = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  var input_email = document.forms["form1"]["email"].value;
+  if (input_email == "") {
+    alert("Please enter your email ID!");
+    return false;
+   }
+  if ((regex_email.test(input_email)))
+  {
+    return true;
+  }
+  else
+  {
+    alert("Enter a valid email ID!");
+    return false;
+  }
+}
+
+function phone_no()
+{
+  var regex_phone = /[7-9][0-9]{9}/;
+  var input_pno = document.forms["form1"]["pno"].value;
+  if (input_pno == "") {
+    alert("Please enter your phone number!!");
+    return false;
+  }
+  if ((regex_phone.test(input_pno)))
+  {
+    return true;
+  }
+  else
+  {
+    alert("Enter a valid phone number!");
+    return false;
+  }
+}
+
+
+function check_form()
+{
+   if (fname() && lname() && email() && phone_no())
+   {
+   	  //window.open("submit.html");
+      return true;
+   }
+   else
+    return false;
+}
+</script>
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="overflow: hidden;display: block;position: sticky;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../home/home.html"><i>Soft Paw</i></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="../home/home.html">HOME</a></li>
+      <li><a href="../about_us/index.html">ABOUT US</a></li>
+      <li><a href="../cat_products/cat_pr.html">CAT's CORNER</a></li>
+      <li><a href="../dog_products/dog_pr.html">DOG's DEN</a></li>
+      <li><a href="../articles/articles.html">ARTICLES</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="../feedback/feedback.html"><span class="glyphicon glyphicon-pencil"></span> Feedback</a></li>
+      <li class="active"><a href="../volunteer/volunteer_form.html"><span class="glyphicon glyphicon-heart"></span> Volunteer</a></li>
+    </ul>
+  </div>
+</nav>
+
+	<div class="header"><p style="padding:20px;">We would require some of your basic details</p></div>
+	
+	<br><br><br>
+
+
+
+	<div class="form">
+	      <form name="form1" onsubmit="return check_form()" action="volunteer_form.jsp" method="post">
+		        <label for="fname">First Name : </label>
+                <input type="text" name="firstname" placeholder="Your name.." style="color: black;">
+                <br><br>
+                <label for="lname">Last Name : </label>
+                <input type="text" name="lastname" placeholder="Your last name.." style="color: black;">
+                <br><br>
+                <label for="email">Email :     </label>
+                <br><br>
+                <input type="email" name="email" placeholder="abc@gmail.com"  style="color: black;">
+                <br><br>
+                <label for="email">Contact no :     </label>
+                <input type="text" name="pno" placeholder="contact no"  style="color: black;">
+                <br><br>
+                <label for="service">Volunteer for : </label>
+                <select id="position" name="position">
+                      <option value="Veterinary Doctor volunteer">Veterinary Doctor volunteer</option>
+                      <option value="Helpers to the doctor">Helpers to the doctor</option>
+                      <option value="Pet care and rehabilitation">Pet care and rehabilitation</option>
+                      <option value="Donate">Donate</option>
+                      <option value="Adopt a buddy">Adopt a buddy</option>
+                </select>
+                <br><br>
+                <label for="Location">Preferred location : </label>
+                <select id="location" name="location">
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Pune">Pune</option>
+                      <option value="Kolhapur">Kolhapur</option>
+                </select>
+                <br><br>
+                <input class="sub" type="submit" value="Submit" id="sub" >
+	       </form>
+    </div> 
+
+</body>
+</html>
